@@ -3,7 +3,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'exercise',
-		'rpe',
+		'day',
 		'cycle'
 	],
 	#category : #'Gt4Workouts-Model'
@@ -25,6 +25,16 @@ Gt4WScheduledExercise >> cycle: anObject [
 ]
 
 { #category : #accessing }
+Gt4WScheduledExercise >> day [
+	^ day
+]
+
+{ #category : #accessing }
+Gt4WScheduledExercise >> day: anObject [
+	day := anObject
+]
+
+{ #category : #accessing }
 Gt4WScheduledExercise >> exercise [
 	^ exercise
 ]
@@ -39,16 +49,15 @@ Gt4WScheduledExercise >> printOn: aStream [
 	aStream
 		nextPutAll: exercise asString;
 		nextPutAll: ' (RPE ';
-		nextPutAll: rpe asString;
+		nextPutAll: self rpe asString;
 		nextPut: $)
 ]
 
 { #category : #accessing }
 Gt4WScheduledExercise >> rpe [
-	^ rpe
-]
-
-{ #category : #accessing }
-Gt4WScheduledExercise >> rpe: anObject [
-	rpe := anObject
+	| rpes weekNumber weekNumbers |
+	rpes := self exercise rpes.
+	weekNumber := self day week number.
+	weekNumbers := self cycle weeks.
+	^ rpes at: (rpes size * (weekNumber / weekNumbers)) rounded
 ]

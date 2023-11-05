@@ -2,7 +2,8 @@ Class {
 	#name : #Gt4WExercise,
 	#superclass : #Object,
 	#instVars : [
-		'sets'
+		'sets',
+		'rpes'
 	],
 	#category : #'Gt4Workouts-Model'
 }
@@ -10,6 +11,16 @@ Class {
 { #category : #accessing }
 Gt4WExercise >> children [
 	^ {}
+]
+
+{ #category : #accessing }
+Gt4WExercise >> rpes [
+	^ rpes
+]
+
+{ #category : #accessing }
+Gt4WExercise >> rpes: anObject [
+	rpes := anObject
 ]
 
 { #category : #accessing }

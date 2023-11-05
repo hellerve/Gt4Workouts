@@ -4,8 +4,7 @@ Class {
 	#instVars : [
 		'name',
 		'days',
-		'weeks',
-		'rpeRange'
+		'weeks'
 	],
 	#category : #'Gt4Workouts-Model'
 }
@@ -60,16 +59,6 @@ Gt4WMesoCycle >> name: anObject [
 { #category : #accessing }
 Gt4WMesoCycle >> printOn: aStream [
 	aStream nextPutAll: self name
-]
-
-{ #category : #accessing }
-Gt4WMesoCycle >> rpeRange [
-	^ rpeRange
-]
-
-{ #category : #accessing }
-Gt4WMesoCycle >> rpeRange: anObject [
-	rpeRange := anObject
 ]
 
 { #category : #accessing }

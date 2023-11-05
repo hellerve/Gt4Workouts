@@ -14,20 +14,22 @@ Gt4WDay class >> named: aName [
 ]
 
 { #category : #accessing }
-Gt4WDay >> add: anAssociation setsOf: aString [
+Gt4WDay >> add: anAssociation setsOf: aString atRPEs: anRPERange [
 	exercises
 		add: (Gt4WSingleExercise new
 				exercise: aString;
 				sets: anAssociation key;
-				reps: anAssociation value)
+				reps: anAssociation value;
+				rpes: anRPERange)
 ]
 
-{ #category : #'as yet unclassified' }
-Gt4WDay >> add: anInteger supersetsOf: aCollection [
+{ #category : #accessing }
+Gt4WDay >> add: anInteger supersetsOf: aCollection atRPEs: anRPERange [
 	exercises
 		add: (Gt4WSuperSettedExercise new
 				sets: anInteger;
-				supersets: aCollection)
+				supersets: aCollection;
+				rpes: anRPERange)
 ]
 
 { #category : #accessing }

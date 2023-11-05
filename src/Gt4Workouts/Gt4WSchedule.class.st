@@ -12,7 +12,6 @@ Gt4WSchedule >> children [
 	^ (1 to: cycle weeks) collect: [:aNumber |
 		Gt4WScheduledWeek new
 			number: aNumber;
-			rpe: (cycle rpeRange at: aNumber);
 			cycle: cycle
 	]
 ]

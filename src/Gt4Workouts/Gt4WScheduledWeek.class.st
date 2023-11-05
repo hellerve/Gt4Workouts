@@ -3,7 +3,6 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'number',
-		'rpe',
 		'cycle'
 	],
 	#category : #'Gt4Workouts-Model'
@@ -14,7 +13,7 @@ Gt4WScheduledWeek >> children [
 	^ cycle days collect: [:aDay |
 		Gt4WScheduledDay new
 			day: aDay;
-			rpe: rpe;
+			week: self;
 			cycle: cycle
 	]
 ]
@@ -42,14 +41,4 @@ Gt4WScheduledWeek >> number: anObject [
 { #category : #accessing }
 Gt4WScheduledWeek >> printOn: aStream [
 	aStream nextPutAll: 'Week '; nextPutAll: number asString
-]
-
-{ #category : #accessing }
-Gt4WScheduledWeek >> rpe [
-	^ rpe
-]
-
-{ #category : #accessing }
-Gt4WScheduledWeek >> rpe: anObject [
-	rpe := anObject
 ]

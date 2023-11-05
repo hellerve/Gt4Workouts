@@ -4,20 +4,19 @@ Class {
 	#instVars : [
 		'days',
 		'name',
-		'weeks',
-		'rpeRange'
+		'weeks'
 	],
 	#category : #'Gt4Workouts-Builder'
 }
 
 { #category : #accessing }
-Gt4WMesoCycleBuilder >> add: aPair setsOf: aName [
-	days last add: aPair setsOf: aName
+Gt4WMesoCycleBuilder >> add: aPair setsOf: aName atRPEs: aRPERange [
+	days last add: aPair setsOf: aName atRPEs: aRPERange
 ]
 
 { #category : #accessing }
-Gt4WMesoCycleBuilder >> add: aNumber supersetsOf: supersets [
-	days last add: aNumber supersetsOf: supersets
+Gt4WMesoCycleBuilder >> add: aNumber supersetsOf: supersets atRPEs: aRPERange [
+	days last add: aNumber supersetsOf: supersets atRPEs: aRPERange
 ]
 
 { #category : #accessing }
@@ -30,8 +29,7 @@ Gt4WMesoCycleBuilder >> build [
 	^ Gt4WMesoCycle new
 		name: self name;
 		days: days;
-		weeks: self weeks;
-		rpeRange: self rpeRange
+		weeks: self weeks
 ]
 
 { #category : #accessing }
@@ -47,16 +45,6 @@ Gt4WMesoCycleBuilder >> name [
 { #category : #accessing }
 Gt4WMesoCycleBuilder >> name: anObject [
 	name := anObject
-]
-
-{ #category : #accessing }
-Gt4WMesoCycleBuilder >> rpeRange [
-	^ rpeRange
-]
-
-{ #category : #accessing }
-Gt4WMesoCycleBuilder >> rpeRange: anObject [
-	rpeRange := anObject
 ]
 
 { #category : #accessing }
