@@ -37,3 +37,12 @@ Gt4WSingleExercise >> reps [
 Gt4WSingleExercise >> reps: anObject [
 	reps := anObject
 ]
+
+{ #category : #accessing }
+Gt4WSingleExercise >> template [
+	^ 'add: ' , self sets asString , ' -> ' , self reps asString
+		, '
+	setsOf: ''' , self exercise
+		, '''
+	atRPEs: ' , self rpes asString
+]

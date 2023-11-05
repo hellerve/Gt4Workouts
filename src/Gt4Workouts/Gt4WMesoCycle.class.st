@@ -47,6 +47,19 @@ Gt4WMesoCycle >> gtViewScheduleFor: aView [
 ]
 
 { #category : #accessing }
+Gt4WMesoCycle >> gtViewTemplateFor: aView [
+	<gtView>
+	^ aView textEditor
+		title: 'Template';
+		priority: 3;
+		text: [ self template ];
+		aptitude: [ BrGlamorousCodeEditorAptitude ];
+		styler: (BrRBTextStyler new
+				isForWorkspace: true;
+				yourself)
+]
+
+{ #category : #accessing }
 Gt4WMesoCycle >> name [
 	^ name
 ]
@@ -64,6 +77,20 @@ Gt4WMesoCycle >> printOn: aStream [
 { #category : #accessing }
 Gt4WMesoCycle >> schedule [
 	^ Gt4WSchedule new cycle: self
+]
+
+{ #category : #accessing }
+Gt4WMesoCycle >> template [
+	^ 'Gt4WMesoCycleBuilder new
+	name: ''' , self name
+		, ''';
+	weeks: ' , self weeks asString
+		, ';
+	'
+		, (';
+	' join: (self days collect: #template))
+		, ';
+	build'
 ]
 
 { #category : #accessing }

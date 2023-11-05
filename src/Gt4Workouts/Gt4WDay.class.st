@@ -61,3 +61,12 @@ Gt4WDay >> name: anObject [
 Gt4WDay >> printOn: aStream [
 	aStream nextPutAll: self name
 ]
+
+{ #category : #accessing }
+Gt4WDay >> template [
+	^ 'addDay: ''' , self name
+		, ''';
+	'
+		, (';
+	' join: (self exercises collect: #template))
+]

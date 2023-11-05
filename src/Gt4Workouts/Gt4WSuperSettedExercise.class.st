@@ -25,3 +25,12 @@ Gt4WSuperSettedExercise >> supersets [
 Gt4WSuperSettedExercise >> supersets: anObject [
 	supersets := anObject
 ]
+
+{ #category : #accessing }
+Gt4WSuperSettedExercise >> template [
+	^ 'add: ' , self sets asString
+		, '
+	supersetsOf: ' , self supersets asString
+		, '
+	atRPEs: ' , self rpes asString
+]
