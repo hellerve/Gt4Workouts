@@ -43,6 +43,17 @@ Gt4WDay >> exercises [
 ]
 
 { #category : #accessing }
+Gt4WDay >> gtViewDayFor: aView [
+	<gtView>
+	^ aView tree
+		title: 'Day';
+		priority: 1;
+		items: [ { self } ];
+		children: #children;
+		expandAll
+]
+
+{ #category : #accessing }
 Gt4WDay >> initialize [
 	exercises := OrderedCollection new
 ]
