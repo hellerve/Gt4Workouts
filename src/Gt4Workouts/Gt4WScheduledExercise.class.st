@@ -59,5 +59,5 @@ Gt4WScheduledExercise >> rpe [
 	rpes := self exercise rpes.
 	weekNumber := self day week number.
 	weekNumbers := self cycle weeks.
-	^ rpes at: (rpes size * (weekNumber / weekNumbers)) rounded
+	^ rpes at: (rpes size * (weekNumber / weekNumbers)) ceiling
 ]
