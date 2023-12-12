@@ -21,7 +21,7 @@ Gt4WMesoCycleBuilder >> add: aNumber supersetsOf: supersets atRPEs: aRPERange [
 
 { #category : #accessing }
 Gt4WMesoCycleBuilder >> addDay: aName [
-	days add: (Gt4WDay named: aName)
+	days add: ((Gt4WDay named: aName) index: days size + 1)
 ]
 
 { #category : #accessing }

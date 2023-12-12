@@ -3,7 +3,9 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'name',
-		'exercises'
+		'exercises',
+		'cycle',
+		'index'
 	],
 	#category : #'Gt4Workouts-Model'
 }
@@ -20,7 +22,8 @@ Gt4WDay >> add: anAssociation setsOf: aString atRPEs: anRPERange [
 				exercise: aString;
 				sets: anAssociation key;
 				reps: anAssociation value;
-				rpes: anRPERange)
+				rpes: anRPERange;
+				index: exercises size + 1)
 ]
 
 { #category : #accessing }
@@ -29,12 +32,24 @@ Gt4WDay >> add: anInteger supersetsOf: aCollection atRPEs: anRPERange [
 		add: (Gt4WSuperSettedExercise new
 				sets: anInteger;
 				supersets: aCollection;
-				rpes: anRPERange)
+				rpes: anRPERange;
+				index: exercises size + 1)
 ]
 
 { #category : #accessing }
 Gt4WDay >> children [
 	^ exercises
+]
+
+{ #category : #accessing }
+Gt4WDay >> cycle [
+	^ cycle
+]
+
+{ #category : #accessing }
+Gt4WDay >> cycle: anObject [
+	cycle := anObject.
+	exercises do: [ :anExercise | anExercise cycle: cycle ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -51,6 +66,16 @@ Gt4WDay >> gtViewDayFor: aView [
 		items: [ { self } ];
 		children: #children;
 		expandAll
+]
+
+{ #category : #accessing }
+Gt4WDay >> index [
+	^ index
+]
+
+{ #category : #accessing }
+Gt4WDay >> index: anObject [
+	index := anObject
 ]
 
 { #category : #accessing }

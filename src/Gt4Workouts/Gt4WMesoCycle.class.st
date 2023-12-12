@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'name',
 		'days',
-		'weeks'
+		'weeks',
+		'results'
 	],
 	#category : #'Gt4Workouts-Model'
 }
@@ -21,7 +22,8 @@ Gt4WMesoCycle >> days [
 
 { #category : #accessing }
 Gt4WMesoCycle >> days: anObject [
-	days := anObject
+	days := anObject.
+	days do: [ :aDay | aDay cycle: self ]
 ]
 
 { #category : #accessing }
@@ -33,6 +35,16 @@ Gt4WMesoCycle >> gtViewCycleFor: aView [
 		items: [ self days ];
 		children: #children;
 		expandAll
+]
+
+{ #category : #accessing }
+Gt4WMesoCycle >> gtViewResults: aView [
+	<gtView>
+	^ aView forward
+		title: 'Results';
+		priority: 4;
+		object: [ self results ];
+		view: #gtViewResults:
 ]
 
 { #category : #accessing }
@@ -60,6 +72,18 @@ Gt4WMesoCycle >> gtViewTemplateFor: aView [
 ]
 
 { #category : #accessing }
+Gt4WMesoCycle >> initialize [
+	super initialize.
+	
+	results := Gt4WResults new
+]
+
+{ #category : #accessing }
+Gt4WMesoCycle >> logger [
+	^ Gt4MesoCycleLogger new cycle: self
+]
+
+{ #category : #accessing }
 Gt4WMesoCycle >> name [
 	^ name
 ]
@@ -72,6 +96,16 @@ Gt4WMesoCycle >> name: anObject [
 { #category : #accessing }
 Gt4WMesoCycle >> printOn: aStream [
 	aStream nextPutAll: self name
+]
+
+{ #category : #accessing }
+Gt4WMesoCycle >> results [
+	^ results
+]
+
+{ #category : #accessing }
+Gt4WMesoCycle >> results: anObject [
+	results := anObject
 ]
 
 { #category : #accessing }

@@ -45,6 +45,11 @@ Gt4WScheduledExercise >> exercise: anObject [
 ]
 
 { #category : #accessing }
+Gt4WScheduledExercise >> logResult: aValue [
+	self cycle logger logInWeek: self day week number onDay: self day day index onExercise: self exercise index result: aValue
+]
+
+{ #category : #accessing }
 Gt4WScheduledExercise >> printOn: aStream [
 	aStream
 		nextPutAll: exercise asString;
